@@ -14,6 +14,6 @@ module.exports.routes = {
 'POST /auth/signIn' : 'AuthController.signIn',
 
 //home
-'GET  /home': 'HomeController.contacts',
+'GET  /home/contacts': 'HomeController.contacts',
 
 };

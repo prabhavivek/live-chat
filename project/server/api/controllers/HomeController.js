@@ -1,6 +1,5 @@
 module.exports = {
-
-    contacts(req,res){
-        res.json('home controller')
-    }
+    contacts:async function(req,res){
+      await Home.contacts(req,res)
+    },
 }
