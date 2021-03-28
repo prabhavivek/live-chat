@@ -12,7 +12,7 @@ module.exports = {
     } else {
       let result = await sails.sendNativeQuery(
         `INSERT INTO users (user_name,email_id,password) VALUES ($1,$2,$3)`,
-        [user_name, mail_id, password]
+        [user_name, mail_id, password] 
       );
       res.json("Uploaded successfully");
     }
