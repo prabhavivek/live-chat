@@ -16,8 +16,10 @@ CREATE  TABLE  messages(
     message_id  SERIAL PRIMARY KEY NOT NULL ,
     message VARCHAR NOT NULL,
     user_id INT NOT NULL,
-    group_id INT NOT NULL,
+    par_user_id INT NULL
+    group_id INT  NULL,
     CONSTRAINT fk_users FOREIGN KEY(user_id) REFERENCES users(user_id),
+    CONSTRAINT fk_users FOREIGN KEY(par_user_id) REFERENCES users(user_id),
     CONSTRAINT fk_group_details FOREIGN KEY(group_id) REFERENCES group_details(group_id)
 );
 
