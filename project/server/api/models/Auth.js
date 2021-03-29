@@ -39,7 +39,6 @@ module.exports = {
          
       }
     }
-    console.log("Please check your Password or Mail Id")
     res.json("Please check your Password or Mail Id")
   
   },
