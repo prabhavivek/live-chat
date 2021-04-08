@@ -6,21 +6,24 @@
   "keywords": [],
   "dependencies": {
     "@sailshq/lodash": "^3.10.3",
+    "concurrently": "^6.0.1",
     "nodemon": "^2.0.7",
     "sails": "^1.4.2",
     "sails-hook-orm": "^3.0.2",
     "sails-hook-sockets": "^2.0.0",
-    "sails-postgresql": "^2.0.0" 
+    "sails-postgresql": "^2.0.0"
   },
   "devDependencies": {
     "eslint": "5.16.0"
   },
   "scripts": {
-    "start": "NODE_ENV=production node app.js",
+    "start": "nodemon app.js",
+    "server": "nodemon app.js",
+    "client": "npm start --prefix ../client",
     "test": "npm run lint && npm run custom-tests && echo 'Done.'",
     "lint": "./node_modules/eslint/bin/eslint.js . --max-warnings=0 --report-unused-disable-directives && echo '✔  Your .js files look good.'",
     "custom-tests": "echo \"(No other custom tests yet.)\" && echo",
-    "dev":"nodemon app.js"
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "main": "app.js",
   "repository": {

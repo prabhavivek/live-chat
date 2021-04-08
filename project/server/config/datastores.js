@@ -52,7 +52,7 @@ module.exports.datastores = {
     // url: 'mysql://user:password@host:port/database',
 
     adapter: 'sails-postgresql',
-    url: 'postgresql://postgres:postgres@localhost:5432/livechat',
+    url: 'postgresql://postgresql:postgresql@localhost:5432/livechat',
 
   },
 

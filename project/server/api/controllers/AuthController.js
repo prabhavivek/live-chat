@@ -8,11 +8,37 @@
 const Auth = require("../models/Auth");
 
 module.exports = {
-  
-    signUp:async function(req,res){ 
-       await Auth.signUp(req,res)
-    },
-    signIn:async function(req,res){
-       await Auth.signIn(req,res)
+  signUp: async function (req, res) {
+   sails.log.info("@Controller AuthController @Method signUp(req,res)")
+
+    if (!req.body.userName || !req.body.emailId || !req.body.password) {
+      return res.badRequest({
+        message: "parameter(s) is missing",
+      });
     }
+    try {
+      await Auth.signUp(req, res);
+    } catch (err) {
+      sails.log.error("@Controller AuthController @Method signUp(req,res)", err);
+      res.badRequest(err);
+    }
+
+  },
+
+  signIn: async function (req, res) {
+   sails.log.info("@Controller AuthController @Method signUp(req,res)")
+
+    if (!req.body.emailId || !req.body.password) {
+      return res.badRequest({
+        message: "parameter(s) is missing",
+      });
+    }
+    
+    try {
+      await Auth.signIn(req, res);
+    } catch (err) {
+      sails.log.error("@Controller AuthController @Method signUp(req,res)", err);
+      res.badRequest(err);
+    }
+  },
 };
